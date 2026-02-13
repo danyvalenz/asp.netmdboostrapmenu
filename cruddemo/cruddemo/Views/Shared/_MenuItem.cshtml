@@ -1,0 +1,38 @@
+﻿@model cruddemo.Models.MenuLateral
+
+@if (Model.SubMenus != null && Model.SubMenus.Any())
+{
+    <li style="list-style: none;">
+        <a class="sidenav-link"
+           data-mdb-collapse-init
+           data-mdb-target="#collapse_@Model.Id"
+           href="javascript:void(0);"
+           role="button">
+            <div>
+                <i class="@Model.Icono me-3 text-primary" style="width: 20px; text-align: center;"></i>
+                <span>@Model.Texto</span>
+            </div>
+            <i class="fas fa-chevron-down fa-xs transition-icon"></i>
+        </a>
+
+        <div class="collapse" id="collapse_@Model.Id">
+            <ul style="padding: 0; margin: 0;">
+                @foreach (var subItem in Model.SubMenus.OrderBy(x => x.Orden))
+                {
+                    @await Html.PartialAsync("/Views/Shared/_MenuItem.cshtml", subItem)
+                }
+            </ul>
+        </div>
+    </li>
+}
+else
+{
+    <li style="list-style: none;">
+        <a class="sidenav-link" asp-controller="@Model.Controller" asp-action="@Model.Action">
+            <div>
+                <i class="@Model.Icono me-3 text-primary" style="width: 20px; text-align: center;"></i>
+                <span>@Model.Texto</span>
+            </div>
+        </a>
+    </li>
+}

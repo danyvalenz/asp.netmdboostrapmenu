@@ -1,0 +1,36 @@
+﻿@model IEnumerable<cruddemo.Models.MenuLateral>
+
+<ul class="list-group list-group-light">
+    @foreach (var item in Model)
+    {
+        @await Html.PartialAsync("/Views/Shared/_MenuItem.cshtml", item)
+    }
+</ul>
+
+<script>
+    // Inicialización manual para asegurar que funcione con contenido dinámico
+    (function() {
+        const initMenus = () => {
+            const collapses = document.querySelectorAll('[data-mdb-collapse-init]');
+            collapses.forEach(el => {
+                const selector = el.getAttribute('data-mdb-target') || el.getAttribute('href');
+                const target = document.querySelector(selector);
+
+                if (target && !mdb.Collapse.getInstance(target)) {
+                    const instance = new mdb.Collapse(target, { toggle: false });
+                    el.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        instance.toggle();
+                    });
+                }
+            });
+        };
+
+        // Ejecutar al cargar
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMenus);
+        } else {
+            initMenus();
+        }
+    })();
+</script>

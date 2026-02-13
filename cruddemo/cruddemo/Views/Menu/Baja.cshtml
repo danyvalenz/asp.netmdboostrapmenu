@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Galería de Videos";
+}
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Mi Videoteca Interactiva</h2>
+        <p class="text-muted">Reproducción directa desde YouTube y Vimeo</p>
+        <hr class="hr" />
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+        <div class="col">
+            <div class="card h-100 shadow-3">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/nKE8pqvhrs8"
+                            title="YouTube video player"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Video de YouTube</h5>
+                    <p class="card-text">
+                        Este es el video que configuramos con el formato <strong>/embed/</strong>.
+                    </p>
+                </div>
+                <div class="card-footer text-muted">YouTube API</div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 shadow-3">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://player.vimeo.com/video/25398217?h=12246603d6"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Video de Vimeo</h5>
+                    <p class="card-text">
+                        Vimeo también funciona perfecto con las clases de proporción de MDBootstrap.by Daniel Valenzuela
+                    </p>
+                </div>
+                <div class="card-footer text-muted">Vimeo API</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    /* Un toque de estilo extra para las sombras de MDBootstrap */
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+</style>

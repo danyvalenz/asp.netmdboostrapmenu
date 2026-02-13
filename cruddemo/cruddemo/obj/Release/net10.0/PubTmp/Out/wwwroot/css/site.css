@@ -1,0 +1,336 @@
+/* --- CONFIGURACIÓN BASE Y TIPOGRAFÍA --- */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    background-color: #f0f2f5 !important;
+    color: #4f4f4f;
+}
+
+/* --- COMPONENTES GENERALES --- */
+.main-container {
+    background-color: #f0f2f5;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.btn:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Avatar circular */
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* --- TABLAS (DISEÑO LIMPIO) --- */
+.table thead th {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #757575;
+    border-bottom: none;
+}
+
+.table > :not(caption) > * > * {
+    padding: 1.2rem 0.75rem;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+    .table tbody tr:hover {
+        background-color: rgba(18, 102, 241, 0.05) !important;
+        cursor: pointer;
+    }
+
+/* --- NAVEGACIÓN LATERAL (OFFCANVAS) --- */
+.offcanvas {
+    width: 280px !important;
+    border: none !important;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.05) !important;
+}
+
+.offcanvas-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+.offcanvas-body {
+    padding: 0 !important;
+    overflow-x: hidden !important;
+}
+
+/* --- MENÚ RECURSIVO (ESTILO FLAT) --- */
+
+/* Reset de contenedores: Elimina cualquier rastro de list-group de MDB */
+#menu-recursivo ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.collapse {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Estilo para Links y Botones de Colapso */
+.sidenav-link {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px !important;
+    color: #4f4f4f !important;
+    text-decoration: none !important;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border: none !important;
+    background: transparent;
+    width: 100%;
+}
+
+    .sidenav-link:hover {
+        background-color: rgba(0, 0, 0, 0.04) !important;
+        color: #1266f1 !important;
+    }
+
+/* Jerarquía por Indentación Estática (Sin movimiento) */
+
+/* Nivel 2 (Ej: Reportes) */
+.collapse .sidenav-link {
+    padding-left: 1rem !important;
+}
+
+/* Nivel 3 (Ej: Ventas del Día) */
+.collapse .collapse .sidenav-link {
+    padding-left: 2rem !important;
+}
+
+/* Iconos de MDB/FontAwesome alineados */
+.sidenav-link i.text-primary {
+    width: 20px;
+    text-align: center;
+}
+
+/* Animación de la flecha */
+.transition-icon {
+    transition: transform 0.3s ease;
+}
+
+[aria-expanded="true"] .transition-icon {
+    transform: rotate(180deg);
+    color: #1266f1;
+}
+
+/* Estilo para el item activo (opcional) */
+.sidenav-link.active {
+    background-color: rgba(18, 102, 241, 0.05) !important;
+    color: #1266f1 !important;
+    border-left: 4px solid #1266f1 !important;
+}
+
+
+/* Tamaño reducido estilo icono de dashboard */
+.card-img-container {
+    width: 100px; /* Cambia 85px por 55px */
+    height: 100px; /* Cambia 85px por 55px */
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; /* Fondo ligero por si la imagen es transparente */
+    border-radius: 12px;
+}
+
+    .card-img-container img {
+        width: 80%; /* Si quieres que el icono respire dentro del cuadro */
+        height: 80%;
+        object-fit: contain; /* Para iconos es mejor 'contain' que 'cover' */
+    }
+
+
+/* Contenedor que ocupa todo el alto disponible */
+.card-img-container-full {
+    width: 100px; /* Ajusta el ancho que desees para la franja de la imagen */
+    min-height: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+    .card-img-container-full img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Esto hace que la imagen llene el espacio sin deformarse */
+        display: block;
+    }
+
+/* Aseguramos que la card no tenga padding lateral que interfiera */
+.card.card-structum {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor externo que da el padding */
+.card-img-wrapper {
+    width: 130px; /* Un poco más ancho para que luzca el cuadrado */
+    background-color: transparent;
+    flex-shrink: 0;
+    display: flex;
+    align-items: stretch;
+}
+
+/* El contenedor real de la imagen con bordes redondeados */
+.card-img-container-rounded {
+    width: 100%;
+    margin: 8px; /* Este es el "padding pequeño" que pediste hacia los bordes */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .card-img-container-rounded img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Cambia a 'contain' si prefieres que el icono no se corte nada */
+        object-fit: cover;
+    }
+
+/* Refuerzo de bordes de la Card principal */
+.card-structum {
+    border-radius: 16px !important;
+}
+
+.x-small {
+    font-size: 0.75rem;
+}
+
+.uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-status {
+    background-color: #2c3748 !important;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+}
+
+/* Barra de progreso delgada */
+.progress-thin {
+    height: 6px !important;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+
+/* Ajuste para que todas las cards de la "tabla" tengan la misma altura */
+.row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-structum {
+    flex: 1; /* Esto obliga a que si una card es más alta, la de al lado se estire igual */
+    margin-bottom: 0; /* El margen lo maneja la columna */
+}
+
+/* Opcional: Si quieres una separación visual más marcada entre filas */
+.row.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+
+/* Botón estilo Structum (Blanco con sombra suave) */
+.btn-white {
+    background-color: #ffffff;
+    color: #4f4f4f;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    transition: all 0.2s ease;
+}
+
+    .btn-white:hover {
+        background-color: #f8f9fa;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.08) !important;
+    }
+
+/* Reducción sutil de la opacidad del HR */
+.opacity-5 {
+    opacity: 0.05;
+}
+
+
+.card-featured {
+    position: relative;
+    border-radius: 20px !important;
+    /* IMPORTANTE: Cambia 'nombre-de-tu-imagen.jpg' por el archivo que tienes en tu proyecto.
+       El linear-gradient crea la sombra para que el texto resalte.
+    */
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.3) 50%, transparent 100%), url('/img/torre_ejecutiva.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.vision-footer {
+    background: rgba(15, 23, 42, 0.7);
+    /* Este efecto hace que se vea translúcido tipo 'Glassmorphism' */
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.featured-content {
+    /* Asegura que el contenido esté por encima de cualquier capa */
+    z-index: 2;
+}
+
+.featured-bg-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: auto; /* Evita el zoom al no forzar el ancho */
+    max-width: 70%; /* Que no tape el texto de la izquierda */
+    object-fit: contain; /* Muestra la imagen sin recortes */
+    z-index: 0;
+}
+
+.featured-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado que nace desde el color oscuro del fondo */
+    background: linear-gradient(to right, #1e2632 30%, rgba(30, 38, 50, 0.5) 60%, transparent 100%);
+    z-index: 1;
+}

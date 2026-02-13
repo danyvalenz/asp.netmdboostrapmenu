@@ -1,0 +1,165 @@
+﻿@{
+    ViewData["Title"] = "Gestión de Movimientos";
+}
+
+<div class="container">
+    <div class="main-container animated fadeIn">
+
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <h2 class="fw-bold text-dark mb-0">Dashboard de Movimientos</h2>
+                <p class="text-muted">Administra tus transacciones de Tiendanube</p>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="button" class="btn btn-primary shadow-0"
+                        data-mdb-modal-init
+                        data-mdb-target="#modalNuevoMovimiento">
+                    <i class="fas fa-plus me-2"></i> Nuevo Registro
+                </button>
+                <button type="button" class="btn btn-light btn-floating shadow-0" data-mdb-ripple-init>
+                    <i class="fas fa-sync"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-xl-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-0 bg-primary text-white h-100">
+                    <div class="card-body d-flex align-items-center">
+                        <i class="fas fa-coins fa-2x me-3"></i>
+                        <div>
+                            <p class="mb-0 small opacity-75">Total Ventas</p>
+                            <h4 class="mb-0 fw-bold">5,000 PEN</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+            <div class="col-md-8">
+                <div class="form-outline" data-mdb-input-init>
+                    <input type="text" id="form1" class="form-control" />
+                    <label class="form-label" for="form1">Buscar referencia...</label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select" id="selectMoneda" style="height: 38px;">
+                    <option selected>Filtrar por Moneda</option>
+                    <option value="1">PEN - Sol Peruano</option>
+                    <option value="2">USD - Dólar Americano</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="bg-light">
+                    <tr>
+                        <th class="border-0">Referencia</th>
+                        <th class="border-0">Estado</th>
+                        <th class="border-0">Importe</th>
+                        <th class="border-0 text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="border-top-0">
+                    <tr>
+                        <td>
+                            <span class="fw-bold">FAC-001</span><br />
+                            <small class="text-muted">Tiendanube</small>
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill px-3">Activo</span>
+                        </td>
+                        <td class="fw-bold">5,000 PEN</td>
+                        <td class="text-end">
+                            <button class="btn btn-link btn-sm text-dark"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-link btn-sm text-danger"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="fw-bold">FAC-001</span><br />
+                            <small class="text-muted">Tiendanube</small>
+                        </td>
+                        <td>
+                            <span class="badge badge-success rounded-pill px-3">Activo</span>
+                        </td>
+                        <td class="fw-bold">5,000 PEN</td>
+                        <td class="text-end">
+                            <button class="btn btn-link btn-sm text-dark"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-link btn-sm text-danger"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="modal fade" id="modalNuevoMovimiento" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 15px; border: none;">
+
+                <div class="modal-header bg-primary text-white" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        <i class="fas fa-edit me-2"></i> Registrar Nuevo Movimiento
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <form id="formMovimiento">
+                        <div class="form-outline mb-4" data-mdb-input-init>
+                            <input type="text" id="referenciaModal" class="form-control" />
+                            <label class="form-label" for="referenciaModal">Referencia (Ej: FAC-002)</label>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label small text-muted" for="monedaModal">Moneda</label>
+                                <select class="form-select border-0 bg-light" id="monedaModal">
+                                    <option value="PEN">PEN</option>
+                                    <option value="USD">USD</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label class="form-label small text-muted" for="importeModal">Importe</label>
+                                <div class="form-outline" data-mdb-input-init>
+                                    <input type="number" id="importeModal" class="form-control" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-outline mb-4" data-mdb-input-init>
+                            <textarea class="form-control" id="notasModal" rows="3"></textarea>
+                            <label class="form-label" for="notasModal">Notas adicionales</label>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-light shadow-0" data-mdb-ripple-init data-mdb-dismiss="modal">
+                        Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary shadow-0" data-mdb-ripple-init>
+                        Guardar Cambios
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script>
+        // Esto asegura que al abrir el modal, los inputs se "den cuenta" de su lugar
+        const myModalEl = document.getElementById('modalNuevoMovimiento');
+        myModalEl.addEventListener('shown.bs.modal', () => {
+            document.querySelectorAll('.form-outline').forEach((formOutline) => {
+                new mdb.Input(formOutline).init();
+            });
+        });
+    </script>
+}

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - cruddemo</title>
+
+    <script type="importmap"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap">
+
+    <link rel="stylesheet" href="~/css/mdb.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow-1">
+            <div class="container-fluid">
+                <button class="btn shadow-0 text-white me-3 p-2"
+                        type="button"
+                        data-mdb-offcanvas-init
+                        data-mdb-target="#offcanvasExample"
+                        aria-controls="offcanvasExample">
+                    <i class="fas fa-bars fa-2xl"></i>
+                </button>
+                <div class="ms-auto d-flex align-items-center">
+                    <span class="text-white me-2 fw-medium">Andres</span>
+                    <div class="user-avatar-wrapper">
+                        <img src="~/img/icon-mac-256x256@2x.png"
+                             class="rounded-circle border border-white border-2"
+                             alt="User profile"
+                             width="38"
+                             height="38">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" data-mdb-backdrop="true">
+        <div class="offcanvas-header">
+            <h5 class=" fw-bold text-primary-emphasis" id="offcanvasExampleLabel">STRUCTUM</h5>
+        </div>
+        <div class="offcanvas-body">
+            @await Component.InvokeAsync("Menu")
+        </div>
+    </div>
+
+    <main id="main-content" style="padding-top: 70px;">
+        <div class="container-fluid px-4 mt-4">
+            @RenderBody()
+        </div>
+    </main>
+
+    <script src="~/js/mdb.umd.min.js" asp-append-version="true"></script>
+</body>
+
+</html>
